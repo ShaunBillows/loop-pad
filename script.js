@@ -124,7 +124,7 @@ const soundIsPlaying = () => {
   return false
 }
 
-let bpm = 125
+let bpm = 126
 let beatInterval = 60 * 1000 / bpm * 16 // miliseconds per 4 bars
 let delay = 0
 let startTime = 0
@@ -145,7 +145,14 @@ for (let i=0; i<instruments.length; i++) {
   instruments[i].pad.addEventListener("click", () => {
 
     if (instruments[i].isPlaying) {
-      instruments[i].pauseAudio()
+
+      quantise()
+
+      setTimeout(() => {
+        instruments[i].pauseAudio()
+      }, delay)
+
+
       instruments[i].isPlaying = false
       instruments[i].setPadColor()
     } else {
