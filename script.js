@@ -1,75 +1,3 @@
-// const padOne = document.querySelector(".one");
-// let audioOne = new Audio("beat.mp3")
-// let isPlayingOne = false
-
-
-// padOne.addEventListener("click", () => {
-//   if (isPlayingOne) {
-//     isPlayingOne = false
-//     audioOne.pause()
-//     audioOne.currentTime = 0
-//     padOne.style.backgroundColor = 'blue'
-//   } else {
-//     isPlayingOne = true
-//     audioOne.play()
-//     padOne.style.backgroundColor = 'yellow'
-
-//     quantise()
-//   }
-// })
-
-
-// const padTwo = document.querySelector(".two");
-// let audioTwo = new Audio("bass.mp3")
-// let isPlayingTwo = false
-
-
-// padTwo.addEventListener("click", () => {
-//   if (isPlayingTwo) {
-//     quantise()
-
-//     isPlayingTwo = false
-//     audioTwo.pause()
-//     audioTwo.currentTime = 0
-//     padTwo.style.backgroundColor = 'blue'
-//   } else {
-    
-//     quantise()
-//     padTwo.style.backgroundColor = 'yellow'
-
-//     setTimeout( () => {
-//       isPlayingTwo = true
-//       audioTwo.play()
-//     }, delay)
-
-//   }
-// })
-
-// quantisation 
-// When a sound is clicked, if no other sounds are playing, get the current time and the bmp info.  When a sound is clicked, and there is another sound plating, calculate the time till the next first beat and delay the new sound starting by that amount.
-
-// bpm is 125 
-// let bpm = 125
-// let beatInterval = 60 * 1000 / bpm * 16 // miliseconds per 4 bars
-// soundIsPlaying = false
-// let delay = 0
-
-// let startTime = 0
-
-// const quantise = () => {
-//   if (!soundIsPlaying) {
-//     startTime = Date.now()
-//     soundIsPlaying = true
-//   } else {
-//     let currentTime = Date.now()
-//     let timeDifference = currentTime - startTime
-//     delay = beatInterval - timeDifference % beatInterval
-//   }
-// }
-
-
-// ----------------------------------------
-
 class Instrument {
   constructor(pad, audio, isPlaying) {
     this.pad = document.querySelector(pad)
@@ -85,9 +13,9 @@ class Instrument {
   }
   setPadColor() {
     if (this.isPlaying) {
-      this.pad.style.backgroundColor = "yellow"
+      this.pad.style.backgroundColor = "rgba(0, 38, 255, 0.4)"
     } else {
-      this.pad.style.backgroundColor = "blue"     
+      this.pad.style.backgroundColor = "rgba(255, 0, 195, 0.25)"
     }
   }
 }
@@ -173,3 +101,6 @@ for (let i=0; i<instruments.length; i++) {
 
 // console.log(audioOne)
 // soundFour.playAudio()
+
+lowPassFilter.lowPassFilter(samples, 200, 44100, 0);
+lowPassFilter.lowPassFilter()

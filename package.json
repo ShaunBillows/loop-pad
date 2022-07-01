@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "low-pass-filter": "^1.0.0"
+  }
+}
